@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bb067h5hv1qky"]
+
+[ext_resource type="Script" path="res://addons/simplelicense/Copyright.gd" id="1_tn7f3"]
+[ext_resource type="Script" path="res://addons/simplelicense/License.gd" id="3_ghb0g"]
+
+[sub_resource type="Resource" id="Resource_mi25r"]
+script = ExtResource("1_tn7f3")
+creators = "Grady"
+years = "2022"
+
+[resource]
+script = ExtResource("3_ghb0g")
+files = null
+directories = [ExtResource("1_tn7f3")]
+raw_paths = null
+title = "Simple License"
+copyrights = [SubResource("Resource_mi25r")]
+license_type = "CC0-1.0"
+license_text_file = "res://licenses/CC0-1.0.txt"
+extra = ""
+feature_attribution = 2
+feature_usage = 1
+feature_derivative_works = 1
+feature_sharing = 1
+feature_royalties = 1
+notes = ""
