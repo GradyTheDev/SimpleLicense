@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cor65wdyfs6s7"]
+[gd_scene load_steps=3 format=3 uid="uid://bap5x6kis6j2a"]
 
-[ext_resource type="Script" path="res://addons/simplelicense/LicenseGUI.gd" id="1_basfg"]
+[ext_resource type="Script" path="res://addons/simplelicense/GUI/LicenseGUI.gd" id="1_ue7vy"]
+[ext_resource type="Script" path="res://addons/simplelicense/api/LicenseManager.gd" id="2_cpb2k"]
 
 [node name="LicenseGUI" type="Control"]
 custom_minimum_size = Vector2i(256, 256)
@@ -10,7 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_basfg")
+script = ExtResource("1_ue7vy")
+load_locations = ["res://licenses", "res://addons/simplelicense/mod_example/licenses/"]
+export_locations = ["user://", "user://mods/mod_1/"]
+
+[node name="LicenseManager" type="Node" parent="."]
+script = ExtResource("2_cpb2k")
 
 [node name="background" type="Panel" parent="."]
 layout_mode = 1
@@ -62,9 +68,10 @@ metadata/_edit_use_anchors_ = true
 [node name="btn_open_data_dir" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.58507
+anchor_left = 0.585069
+anchor_top = 0.00308642
 anchor_right = 0.696181
-anchor_bottom = 0.0385802
+anchor_bottom = 0.0416667
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 12
 text = "Open Data Directory"
@@ -74,14 +81,31 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.491319
+anchor_top = 0.00308642
 anchor_right = 0.56684
-anchor_bottom = 0.0385802
+anchor_bottom = 0.0416667
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 12
 text = "Save Licenses"
+metadata/_edit_use_anchors_ = true
+
+[node name="op_locations" type="OptionButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00694444
+anchor_top = 0.00308642
+anchor_right = 0.172743
+anchor_bottom = 0.0416667
+theme_override_font_sizes/font_size = 12
+item_count = 2
+popup/item_0/text = "a"
+popup/item_0/id = 0
+popup/item_1/text = "b"
+popup/item_1/id = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="item_activated" from="Tree" to="." method="_on_tree_item_activated"]
 [connection signal="item_selected" from="Tree" to="." method="_on_tree_item_selected"]
 [connection signal="pressed" from="btn_open_data_dir" to="." method="_on_btn_open_data_dir_pressed"]
 [connection signal="pressed" from="btn_save_licenses" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="op_locations" to="." method="_on_op_locations_item_selected"]

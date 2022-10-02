@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ciy7xx5lw7opx"]
+
+[ext_resource type="Script" path="res://addons/simplelicense/api/LicenseLink.gd" id="1_gufc2"]
+
+[resource]
+script = ExtResource("1_gufc2")
+link_files = null
+link_dirs = null
+link_paths = null
+componet_name = "Mod 1"
+extra = ""
+license_identifier = "mod_1_license_identifier"
+copyright = null

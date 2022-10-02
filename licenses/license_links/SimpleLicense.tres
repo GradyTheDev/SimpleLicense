@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://4q0j64pebmri"]
+
+[ext_resource type="Texture2D" uid="uid://ss3be3lssea5" path="res://addons/simplelicense/Icon.svg" id="1_1pble"]
+[ext_resource type="Script" path="res://addons/simplelicense/api/LicenseLink.gd" id="1_3or5k"]
+
+[resource]
+script = ExtResource("1_3or5k")
+link_files = null
+link_dirs = [ExtResource("1_1pble")]
+link_paths = null
+componet_name = "Simple License"
+extra = ""
+license_identifier = "CC0-1.0"
+copyright = ["2022, Grady"]
