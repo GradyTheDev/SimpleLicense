@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://4q0j64pebmri"]
 
-[ext_resource type="Texture2D" uid="uid://ss3be3lssea5" path="res://addons/simplelicense/Icon.svg" id="1_1pble"]
+[ext_resource type="Texture2D" uid="uid://dnr20t153it5i" path="res://addons/simplelicense/Icon.svg" id="1_1pble"]
 [ext_resource type="Script" path="res://addons/simplelicense/api/LicenseLink.gd" id="1_3or5k"]
 
 [resource]

@@ -73,7 +73,7 @@ func to_formatted_string(hide_files: bool = false):
 		for x in link_dirs:
 			_files += (
 				x.resource_path.replace("res://", " ./").rsplit("/", false, 1)[0].strip_edges()
-				+ "/\n"
+				+ "/*\n"
 			)
 		for x in link_paths:
 			_files += x.replace("res://", " ./").strip_edges() + "\n"

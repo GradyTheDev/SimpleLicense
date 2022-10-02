@@ -1,0 +1,1 @@
+addons/simplelicense/README.txt

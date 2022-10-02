@@ -17,11 +17,14 @@ Quick Example: (A License Viewer Scene, that you can also drop into one of your 
 Quick Start:
 	1. Create a "LicenseLink" Resource file inside the
 		res://licenses/license_links/
+
 	2. Click on the the new Resource file, and try it out
 		There are docs on how to use it, so just F1 + LicenseLink, to find out more
+
 	3. Load license information
 		Create an instance of "LicenseManager" either in code or by adding the node to the scene
 		then call "load_license_information" on the LicenseManager
+
 	4. Export License information
 		call "export" function on the LicenseManager
 		it will populate the "user://" directory with your license files
@@ -30,4 +33,5 @@ Quick Start:
 		The license text will be formatted in the SPDX standard.
 		It's the way the Godot Engine does it.
 		 in the Godot Editor: Help -> About Godot -> Third-party Licenses
-		There is more you can do, just visit the docs! (Like support for loading mod's license information!)
+		There is more you can do, just visit the docs!
+		(Like support for loading mod's license information!)

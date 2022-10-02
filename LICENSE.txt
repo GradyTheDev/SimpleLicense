@@ -1,0 +1,1 @@
+addons/simplelicense/LICENSE.txt
