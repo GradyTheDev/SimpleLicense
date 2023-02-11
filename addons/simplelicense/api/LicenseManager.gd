@@ -36,6 +36,7 @@ func load_license_information():
 	license_links.by_parent.clear()
 	
 	if not DirAccess.dir_exists_absolute(load_dir):
+		printerr("Failed to find license directory ", load_dir)
 		return
 	
 	licenses = License._load_licenses_in(load_dir)
@@ -49,7 +50,8 @@ func load_license_information():
 
 ## Returns a single string "file", that is formatted in the SPDX Standard [br]
 ## that contains all licensing information, contained in this instance, [br]
-func get_combined_copyright() -> String:
+## if only_links, then the returned data will omit the licensing term files
+func get_combined_copyright(only_links: bool = false) -> String:
 	var lines = ""
 	
 	var used_licenses = {}
@@ -63,6 +65,9 @@ func get_combined_copyright() -> String:
 	
 	lines += '\n\n'
 	
+	if only_links:
+		return lines
+	
 	# License Terms
 	var values = used_licenses.values()
 	for i in len(values):
@@ -73,7 +78,6 @@ func get_combined_copyright() -> String:
 
 	return lines
 
-
 ## Returns all licenses that are "valid"/exist [br]
 ## Sometimes license files are missing, or Identifiers are incorrectly spelled, this helps with that.
 func get_all_valid_licenses(link: LicenseLink) -> Dictionary:
@@ -82,7 +86,6 @@ func get_all_valid_licenses(link: LicenseLink) -> Dictionary:
 		if licenses.has(x):
 			d[x] = licenses[x]
 	return d
-
 
 ## export all license information to [member export_dir] and the sub-directory "licenses"
 func export(directory: String = ""):
@@ -97,6 +100,12 @@ func export(directory: String = ""):
 	var f = FileAccess.open(directory.path_join('COPYRIGHT.txt'), FileAccess.WRITE)
 	if f is FileAccess:
 		f.store_string(self.get_combined_copyright())
+	
+	# Export the slim license file
+	f = FileAccess.open(directory.path_join('COPYRIGHT_SLIM.txt'), FileAccess.WRITE)
+	if f is FileAccess:
+		f.store_string(self.get_combined_copyright(true))
+	
 	
 	# Export the individual license files
 	

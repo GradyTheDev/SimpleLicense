@@ -30,6 +30,8 @@ static func _load_licenses_in(dir: String):
 	
 	# get game licenses
 	var names = DirAccess.get_files_at(dir)
+	if names.size() == 0:
+		print_verbose("\nSimple License: No License files found in dir\n", dir, "\nif you have no license files there, then this can be ignored\n")
 	for _name in names:
 		var ext = _name.rsplit('.', false, 1)
 		if ext.size() == 0 or ext[-1] != 'txt':

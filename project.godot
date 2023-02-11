@@ -8,28 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "Resource",
-"class": &"License",
-"language": &"GDScript",
-"path": "res://addons/simplelicense/api/License.gd"
-}, {
-"base": "Resource",
-"class": &"LicenseLink",
-"language": &"GDScript",
-"path": "res://addons/simplelicense/api/LicenseLink.gd"
-}, {
-"base": "Node",
-"class": &"LicenseManager",
-"language": &"GDScript",
-"path": "res://addons/simplelicense/api/LicenseManager.gd"
-}]
-_global_script_class_icons={
-"License": "",
-"LicenseLink": "",
-"LicenseManager": ""
-}
-
 [application]
 
 config/name="Simple License"
@@ -37,10 +15,15 @@ run/main_scene="res://addons/simplelicense/GUI/LicenseGUI.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
+[debug]
+
+file_logging/enable_file_logging.pc=false
+settings/stdout/verbose_stdout=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/simplelicense/plugin.cfg")
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"

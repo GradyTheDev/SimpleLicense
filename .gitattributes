@@ -5,4 +5,5 @@
 /**        export-ignore
 /addons    !export-ignore
 /addons/** !export-ignore
+/licenses/ !export-ignore
 /licenses/** !export-ignore

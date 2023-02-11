@@ -24,6 +24,9 @@ var location_index: int = 0
 var licenses_dict = {}
 
 func _ready() -> void:
+	if not DirAccess.dir_exists_absolute("res://licenses/license_links/"):
+		DirAccess.make_dir_recursive_absolute("res://licenses/license_links/")
+	
 	refresh_after_location_change()
 	reload_license_manager()
 
@@ -34,7 +37,7 @@ func refresh_after_location_change():
 	if load_locations.size() == 0:
 		load_locations.append('res://licenses')
 		export_locations.clear()
-		export_locations.append('user://')
+		export_locations.append('user://licenses/game/')
 	
 	location_index = 0
 	op_locations.clear()
@@ -50,7 +53,7 @@ func reload_license_manager():
 	license_manager.load_dir = load_locations[location_index]
 	license_manager.export_dir = export_locations[location_index]
 	license_manager.load_license_information()
-
+	
 	copyright = license_manager.get_combined_copyright()
 
 	root = tree.create_item()

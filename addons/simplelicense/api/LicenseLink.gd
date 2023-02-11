@@ -15,7 +15,7 @@ extends Resource
 ## Files that are under this license [br]
 ## Note: These paths are [b]NOT[/b] automatically tracked, [br]
 ## you will have to, manually keep these paths up to date 
-@export var link_paths: Array[String]
+@export var link_paths: Array
 
 ## Example: Godot_Icon, Custom Font Name, Your Games Name, etc
 @export var componet_name: String = ""
@@ -104,18 +104,21 @@ func to_formatted_string(hide_files: bool = false):
 # exclude engine: excludes loading Godot's built-in license information
 # this is for mods, in which the main game will have already shown the Godot Engine's Licensing
 static func _load_links_in(dir: String, exclude_engine: bool = false):
-	var tmp = DirAccess.open('res://')
-	if not tmp.dir_exists(dir):
-		return {}
-	
 	var dict = {
 		'array': [],
 		'by_identifier': {},
 		'by_parent': {},
 	}
 	
+	if not DirAccess.dir_exists_absolute(dir):
+		printerr('Simple License: LicenseLinks directory is missing! ', dir)
+		return dict
+	
+	
 	# get Game license links
 	var names = DirAccess.get_files_at(dir)
+	if len(names) == 0:
+		print_verbose("\nSimple License: No LicenseLinks found in dir\n", dir, "\nif you have no LicenseLinks there, then this can be ignored\n")
 	for name in names:
 		name = name.replace('.remap', '')
 		var path = dir.path_join(name)

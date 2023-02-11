@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/simplelicense/api/LicenseManager.gd" id="2_cpb2k"]
 
 [node name="LicenseGUI" type="Control"]
-custom_minimum_size = Vector2i(256, 256)
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,8 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ue7vy")
-load_locations = ["res://licenses", "res://addons/simplelicense/mod_example/licenses/"]
-export_locations = ["user://", "user://mods/mod_1/"]
+load_locations = Array[String](["res://licenses", "res://addons/simplelicense/mod_example/licenses/"])
+export_locations = Array[String](["user://licenses/game/", "user://licenses/mods/mod_1/"])
 
 [node name="LicenseManager" type="Node" parent="."]
 script = ExtResource("2_cpb2k")
