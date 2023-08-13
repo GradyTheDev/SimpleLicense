@@ -133,7 +133,7 @@ static func _load_links_in(dir: String, exclude_engine: bool = false):
 			
 			if not dict.by_parent.has(res.component_of):
 				dict.by_parent[res.component_of] = {}
-			dict.by_parent[res.component_of][res.license_identifier] = res
+			dict.by_parent[res.component_of][res.componet_name] = res
 	
 	# Get Engine license links
 	if not exclude_engine:
@@ -154,7 +154,7 @@ static func _load_links_in(dir: String, exclude_engine: bool = false):
 				dict.by_parent[l.component_of] = {}
 			
 			if not dict.by_parent[l.component_of].has(l.license_identifier):
-				dict.by_parent[l.component_of][l.license_identifier] = l
+				dict.by_parent[l.component_of][l.componet_name] = l
 	
 	return dict
 

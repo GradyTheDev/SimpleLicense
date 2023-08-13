@@ -12,8 +12,8 @@ config_version=5
 
 config/name="Simple License"
 run/main_scene="res://addons/simplelicense/GUI/LicenseGUI.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.1", "Mobile")
+config/icon="res://addons/simplelicense/Icon.svg"
 
 [debug]
 
